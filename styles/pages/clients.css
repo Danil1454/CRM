@@ -1,0 +1,130 @@
+/* clients.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header styles */
+.header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 15px 0;
+}
+
+.header p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.header ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header_logout {
+    float: right;
+}
+
+/* Filters section styles */
+.filters {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.filters label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filters input[type="text"],
+.filters select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Clients table styles */
+.clients {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.clients table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clients th,
+.clients td {
+    padding: 10px;
+    text-align: left;
+}
+
+.clients th {
+    background-color: #35424a;
+    color: white;
+}
+
+.clients tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+.clients tr:hover {
+    background-color: #e2e2e2; /* Highlight on hover */
+}
+
+/* Icon styles */
+.fa {
+    cursor: pointer; /* Change cursor to pointer for clickable icons */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .header ul li {
+        display: block; /* Stack menu items on smaller screens */
+        margin-bottom: 10px; 
+        text-align: center; /* Center align links */
+        margin-right: 0; 
+    }
+}
+.clients_title{
+    font-size: 24px;
+    text-align: center;
+    margin: 16px 0;   
+    position: sticky;
+    top: 16px; 
+}
+
+.clients_add {
+    position: sticky;
+    top: 16px; 
+}
