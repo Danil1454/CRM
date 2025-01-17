@@ -176,3 +176,124 @@ body {
   .btn-cancel:hover {
     background-color: #e53935; /* Darker red */
   }
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .modal__container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+  }
+  
+  .modal__header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal__title {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .modal__close {
+    background: none;
+    border: none;
+    font-size: 20px;
+  }
+  
+  .modal__content {
+    padding: 20px;
+  }
+  
+  .order {
+    margin-bottom: 20px;
+  }
+  
+  .order_info {
+    margin-bottom: 15px;
+  }
+  
+  .order_number {
+    font-size: 18px;
+  }
+  
+  .order_date,
+  .order_total {
+    color: #555;
+  }
+  
+  .order_items {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order_items th,
+  .order_items td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .order_items th {
+    background-color: #f4f4f4;
+  }
+  
+  .order_items tr:nth-child(even) {
+      background-color: #f9f9f9;
+  }
+
+  @media(max-width : 1400px){
+
+  }
+  @media(max-width : 992px){
+      table {
+          border: 0;
+        }
+      
+        table thead {
+          display: none;
+        }
+      
+        table tr {
+          margin-bottom: 10px;
+          display: block;
+          border-bottom: 2px solid #ddd;
+        }
+      
+        table td {
+          display: block;
+          text-align: right;
+          font-size: 13px;
+          border-bottom: 1px dotted #ccc;
+          border-right: 1px solid transparent;
+        }
+      
+        table td:last-child {
+          border-bottom: 0;
+        }
+      
+        table td:before {
+          content: attr(data-label);
+          float: left;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+
+  }
+  @media(max-width : 768px){
+
+  }
+  @media(max-width : 576px){
+
+  }
