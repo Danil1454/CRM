@@ -7,6 +7,6 @@ session_start();
     // http://localhost/CRM
 require_once 'modules/AuthCheck.php';
 
-AuthCheck("clients.html","login.html");
+AuthCheck("clients.php","login.php");
 
 ?>

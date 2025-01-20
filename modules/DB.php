@@ -1,6 +1,6 @@
 <?php 
 
-$db = new PDO('musql:host=localhost;dbname=crm;charset=utf8',
+$db = new PDO('mysql:host=localhost;dbname=crm;charset=utf8',
 'root',
 null,
 [
