@@ -1,13 +1,16 @@
-<?php
-session_start();
+<?php session_start();
 
 // Проверить переменную $_SECCION
     // на наличие token , нет- редирект на
     // errorPath
-    // http://localhost/CRM
-require_once 'modules/AuthCheck.php';
+    // http://localhost/CRM 
+require_once 'api/auth/AuthCheck.php';
 
 AuthCheck('clients.php');
+
+// Сделать: 
+// Вывод ошибки для пароля 
+// Покрасить ошибку в красный цвет и поменьше 
 
 ?>
 
@@ -25,9 +28,25 @@ AuthCheck('clients.php');
 <body>
     <div class="container">
         <h2>Авторизация</h2>
-        <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Логин" required>
-            <input type="password" name="password" placeholder="Пароль" required>
+        <form action="api/auth/AuthUser.php" method="POST">
+            <input type="text" name="username" placeholder="Логин" >
+            <p class="error"> 
+                <?php 
+                if (isset($_SESSION['login-errors'])){
+                    $errors = $_SESSION['login-errors'];
+                    echo isset($errors['login']) ? $errors['login'] : '';
+                }
+                ?>
+            </p>
+            <input type="password" name="password" placeholder="Пароль" >
+            <p class="error" > 
+                <?php 
+                if (isset($_SESSION['password-errors'])){
+                    $errors = $_SESSION['password-errors'];
+                    echo isset($errors['password']) ? $errors['password'] : '';
+                }
+                ?>
+            </p>
             <button type="submit">Войти</button>
         </form>
     </div>

@@ -37,3 +37,8 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+}
