@@ -4,6 +4,14 @@
     // на наличие token , нет- редирект на
     // errorPath
     // http://localhost/CRM
+if (!isset($_GET['do']) && $_GET['do'] === 'logout'){
+  require_once 'api/auth.LogoutUser.php';
+  require_once 'api/db.php';
+
+  LogoutUser ('login.php', $db, $_SESSION['token']);
+}
+   
+
 require_once 'api/auth/AuthCheck.php';
 
 AuthCheck('','login.php');
@@ -16,7 +24,7 @@ AuthCheck('','login.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>CRM | Товары</title>
+    <title>CRM | Клиенты</title>
     <link rel="stylesheet" href="styles/modules/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/settings.css">
     <link rel="stylesheet" href="styles/pages/clients.css">
@@ -31,7 +39,7 @@ AuthCheck('','login.php');
         <li><a href="">Товары</a></li>
         <li><a href="">Заказы</a></li>
      </ul>
-     <a class="header_logout" href="">Выйти</a> 
+     <a href="?do= logout" class="header_logout" href="">Выйти</a> 
 </div>
 </header>
 <main>
