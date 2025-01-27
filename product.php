@@ -15,7 +15,7 @@ AuthCheck('', 'login.php');
     <link rel="stylesheet" href="styles/pages/products.css">
     <link rel="stylesheet" href="styles/modules/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/modules/MicroModul.css">
-    <title>CRM | Товары</title>
+    <title>CRM | Товар</title>
 </head>
 <body>
     <header class="header">

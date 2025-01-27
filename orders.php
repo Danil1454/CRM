@@ -34,7 +34,7 @@ AuthCheck('', 'login.php');
     <link rel="stylesheet" href="styles/pages/clients.css">
     <link rel="stylesheet" href="styles/modules/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/modules/MicroModul.css">
-    <title>CRM | Клиенты</title>
+    <title>CRM | Заказы</title>
 </head>
 <body>
     <header class="header">
@@ -58,44 +58,43 @@ AuthCheck('', 'login.php');
     <main class="main">
         <section class="main__filters">
             <div class="container">
-                <form action="" method="GET" class="main__form">
-                    <label class="main__label" for="search">Поиск по имени</label>
+                <form action="" class="main__form">
+                    <label class="main__label" for="search">Поиск по названию</label>
                     <input class="main__input" type="text" id="search" name="search" placeholder="Александр">
                     <select class="main__select" name="sort" id="sort">
                         <option value="0">По возрастанию</option>
                         <option value="1">По убыванию</option>
                     </select>
-                    <button type="submit">Поиск</button> 
                 </form>
             </div>
         </section>
         <section class="main__clients">
             <div class="container">
-                <h2 class="main__clients__title">Список клиентов</h2>
+                <h2 class="main__clients__title">Список Заказов</h2>
                 <button class="main__clients__add" onclick="MicroModal.show('add-modal')"><i class="fa fa-plus-circle"></i></button>
                 <table>
                     <thead>
-                        <th>ИД</th>
-                        <th>ФИО</th>
-                        <th>Почта</th>
-                        <th>Телефон</th>
-                        <th>День рождения</th>
-                        <th>Дата создания</th>
-                        <th>История заказов</th>
+                        <th>ID</th>
+                        <th>ФИО Клиента</th>
+                        <th>Дата Заказа</th>
+                        <th>Цена</th>
                         <th>Редактировать</th>
                         <th>Удалить</th>
+                        <th>Генерация чека</th>
+                        <th>Подробнее</th>
                     </thead>
                     <tbody>
-                        <?php
-                            require 'api/DB.php';
-                            require_once 'api/clients/OutputClients.php';
-                            require_once 'api/clients/ClientsSearch.php';
-
-                            $clients = ClientsSearch($_GET, $DB);
-                        
-                            OutputClients($clients);
-
-                        ?>
+                    <tr>
+                <td>$id</td>
+                <td>Александр Александр Александрович</td>
+                <td>12.01.2000</td>
+                <td>125</td>
+                <td onclick="MicroModal.show('edit-modal')"><i class='fa fa-pencil'></i></td>
+                <td onclick="MicroModal.show('delete-modal')"><i class='fa fa-trash'></i></td>
+                <td onclick="MicroModal.show('history-modal')"><i class='fa fa-check-square'></i></td>
+                <td onclick="MicroModal.show('history-modal')"><i class='fa fa-file-code-o'></i></td>
+                
+            </tr>
                     </tbody>
             </table>
             </div>
@@ -142,7 +141,7 @@ AuthCheck('', 'login.php');
           <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
             <header class="modal__header">
               <h2 class="modal__title" id="modal-1-title">
-                Вы уверены, что хотите удалить клиента?
+                Вы уверены, что хотите удалить заказ?
               </h2>
               <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
@@ -158,7 +157,7 @@ AuthCheck('', 'login.php');
           <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
             <header class="modal__header">
               <h2 class="modal__title" id="modal-1-title">
-                Редактировать клиента
+                Редактировать заказ
               </h2>
               <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
@@ -169,11 +168,11 @@ AuthCheck('', 'login.php');
                         <input type="text" id="fullname" name="fullname" required>
                     </div>
                     <div class="modal__form-group">
-                        <label for="email">Почта</label>
+                        <label for="email">Дата заказа</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="modal__form-group">
-                        <label for="phone">Телефон</label>
+                        <label for="phone">Цена</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="modal__form-actions">
@@ -199,11 +198,10 @@ AuthCheck('', 'login.php');
                     <table class="history-table">
                         <thead>
                             <tr>
-                                <th>ID заказа</th>
-                                <th>Товар</th>
-                                <th>Количество</th>
+                                <th>ID Клиента</th>
+                                <th>Фиол клиента</th>
+                                <th>Дата Заказа</th>
                                 <th>Цена</th>
-                                <th>Дата</th>
                             </tr>
                         </thead>
                         <tbody>
