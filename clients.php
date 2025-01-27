@@ -62,9 +62,12 @@ AuthCheck('', 'login.php');
                     <label class="main__label" for="search">Поиск по имени</label>
                     <input class="main__input" type="text" id="search" name="search" placeholder="Александр">
                     <select class="main__select" name="sort" id="sort">
-                        <option value="0">По возрастанию</option>
-                        <option value="1">По убыванию</option>
+                       <option value="">По умолчанию</option>    
+                       <option value="ASC">По возрастанию</option>
+                       <option value="DESC">По убыванию</option>
                     </select>
+                    <!--Добавить кнопку для сброса поиска -->
+                    <a href="?">Сбросить</a>
                     <button type="submit">Поиск</button> 
                 </form>
             </div>
@@ -111,22 +114,22 @@ AuthCheck('', 'login.php');
               <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
             </header>
             <main class="modal__content" id="modal-1-content">
-                <form class="modal__form">
+                <form action="api/clients/AddClients.php" method="POST" class="modal__form">
                     <div class="modal__form-group">
                         <label for="fullname">ФИО</label>
-                        <input type="text" id="fullname" name="fullname" required>
+                        <input type="text" id="fullname" name="fullname">
                     </div>
                     <div class="modal__form-group">
                         <label for="email">Почта</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email">
                     </div>
                     <div class="modal__form-group">
                         <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="modal__form-group">
                         <label for="birthday">День рождения</label>
-                        <input type="date" id="birthday" name="birthday" required>
+                        <input type="date" id="birthday" name="birthday" >
                     </div>
                     <div class="modal__form-actions">
                         <button type="submit" class="modal__btn modal__btn-primary">Создать</button>
@@ -227,6 +230,22 @@ AuthCheck('', 'login.php');
             </div>
         </div>
     </div>
+
+    <div class="modal micromodal-slide open" id="error-modal" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+          <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+            <header class="modal__header">
+              <h2 class="modal__title" id="modal-1-title">
+                Ошибка
+              </h2>
+              <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main class="modal__content" id="modal-1-content">
+                текст ошибка
+            </main>
+          </div>
+        </div>
+      </div>
     <script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script defer src="scripts/initClientsModal.js"></script>
 </body>

@@ -31,7 +31,7 @@ AuthCheck('', 'login.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/settings.css">
-    <link rel="stylesheet" href="styles/pages/clients.css">
+    <link rel="stylesheet" href="styles/pages/orders.css">
     <link rel="stylesheet" href="styles/modules/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/modules/MicroModul.css">
     <title>CRM | Заказы</title>
@@ -91,8 +91,8 @@ AuthCheck('', 'login.php');
                 <td>125</td>
                 <td onclick="MicroModal.show('edit-modal')"><i class='fa fa-pencil'></i></td>
                 <td onclick="MicroModal.show('delete-modal')"><i class='fa fa-trash'></i></td>
-                <td onclick="MicroModal.show('history-modal')"><i class='fa fa-check-square'></i></td>
-                <td onclick="MicroModal.show('history-modal')"><i class='fa fa-file-code-o'></i></td>
+                <td onclick="MicroModal.show('receipt-modal')"><i class='fa fa-check-square'></i></td>
+                <td onclick="MicroModal.show('product-info-modal')"><i class='fa fa-file-code-o'></i></td>
                 
             </tr>
                     </tbody>
@@ -184,46 +184,77 @@ AuthCheck('', 'login.php');
           </div>
         </div>
       </div>
-      <div class="modal micromodal-slide" id="history-modal" aria-hidden="true">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                <header class="modal__header">
-                    <h2 class="modal__title" id="modal-1-title">
-                        История покупок
-                    </h2>
-                    <small>Фамилия Имя Отчество</small>
-                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                </header>
-                <main class="modal__content" id="modal-1-content">
-                    <table class="history-table">
-                        <thead>
-                            <tr>
-                                <th>ID Клиента</th>
-                                <th>Фиол клиента</th>
-                                <th>Дата Заказа</th>
-                                <th>Цена</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Товар 1</td>
-                                <td>2</td>
-                                <td>1000₽</td>
-                                <td>12.01.2024</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Товар 2</td>
-                                <td>1</td>
-                                <td>500₽</td>
-                                <td>15.01.2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </main>
-            </div>
+
+
+      <div class="modal micromodal-slide" id="product-info-modal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+            <header class="modal__header">
+                <h2 class="modal__title" id="modal-product-title">
+                    Информация о товаре
+                </h2>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main class="modal__content" id="modal-product-content">
+                <div class="product-info">
+                    <img src="path/to/product-image.jpg" alt="Наименование товара" class="product-image">
+                    <h3>Наименование товара</h3>
+                    <p><strong>Описание:</strong> Краткое описание товара, включая его особенности и преимущества.</p>
+                    <p><strong>Цена:</strong> 500₽</p>
+                    <p><strong>Количество на складе:</strong> 20 шт.</p>
+                </div>
+            </main>
         </div>
+    </div>
+</div>
+
+
+    <div class="modal micromodal-slide" id="receipt-modal" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+           <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-receipt-title">
+            <header class="modal__header">
+                <h2 class="modal__title" id="modal-receipt-title">
+                    Чек
+                </h2>
+                <small>Фамилия Имя Отчество</small>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <main class="modal__content" id="modal-receipt-content">
+                <table class="receipt-table">
+                    <thead>
+                        <tr>
+                            <th>Наименование товара</th>
+                            <th>Количество</th>
+                            <th>Цена за единицу</th>
+                            <th>Итого</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Товар 1</td>
+                            <td>2</td>
+                            <td>500₽</td>
+                            <td>1000₽</td>
+                        </tr>
+                        <tr>
+                            <td>Товар 2</td>
+                            <td>1</td>
+                            <td>500₽</td>
+                            <td>500₽</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Общая сумма:</td>
+                            <td>1500₽</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </main>
+        </div>
+    </div>
+</div>
+
     </div>
     <script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script defer src="scripts/initClientsModal.js"></script>
