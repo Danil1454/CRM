@@ -1,0 +1,25 @@
+<?php
+function convertDate($date) {
+    return date('d.m.Y', strtotime($date));
+}
+
+function OutputOrders($orders) {
+    foreach ($orders as $key => $order) {
+        $fullname = $order['name'] ?? 'Неизвестно';
+        $order_date = $order['order_date'] ? date('Y-m-d H:i:s', strtotime($order['order_date'])) : 'Неизвестно';
+        $total_price = $order['total'] ?? '0';
+        $order_items = $order['product_names'] ?? 'Нет данных';
+
+        echo "<tr>";
+        echo "<td>{$order['id']}</td>";
+        echo "<td>{$fullname}</td>";
+        echo "<td>{$order_date}</td>";
+        echo "<td>{$total_price}</td>";
+        echo "<td>{$order_items}</td>";
+        echo "<td onclick=\"MicroModal.show('history-modal')\"><i class='fa fa-check'></i></td>";
+        echo "<td onclick=\"MicroModal.show('edit-modal')\"><i class='fa fa-pencil'></i></td>";
+        echo "<td><a href='api/orders/OrdersDelete.php?id={$order['id']}'><i class='fa fa-trash'></i></a></td>";
+        echo "</tr>";
+    }
+}
+?>
