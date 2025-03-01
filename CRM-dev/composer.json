@@ -1,0 +1,17 @@
+{
+    "name": "301-pc/crm-dev",
+    "autoload": {
+        "psr-4": {
+            "301Pc\\CrmDev\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "danil"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^6.1",
+        "dompdf/dompdf": "^3.1"
+    }
+}
